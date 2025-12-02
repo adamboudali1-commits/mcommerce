@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# 🛍️ M-Commerce Microservices Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![Microservices](https://img.shields.io/badge/Architecture-Microservices-orange?style=for-the-badge)
 
-## Available Scripts
+> A scalable, distributed e-commerce platform built using a Microservices architecture. It features a decoupled React frontend styled with Tailwind CSS and independent backend services for Products, Orders, and Payments.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📑 Table of Contents
+* [Architecture Overview](#-architecture-overview)
+* [Key Features](#-key-features)
+* [Technology Stack](#-technology-stack)
+* [Project Structure](#-project-structure)
+* [Getting Started](#-getting-started)
+* [Screenshots](#-screenshots)
+* [Contact](#-contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🏗️ Architecture Overview
 
-### `npm test`
+This project moves away from the traditional monolithic approach. It implements a **Microservices Architecture** where business domains are separated into distinct, independently deployable services.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The system consists of:
+1.  **Client UI:** A responsive Single Page Application (SPA) built with React.
+2.  **Product Service:** Manages inventory and product details.
+3.  **Order Service:** Handles cart management and order processing.
+4.  **Payment Service:** Simulates transaction processing.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ Key Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **🎨 Modern UI/UX:** Built with **React 18** and styled rapidly with **Tailwind CSS**.
+* **🔗 API Integration:** The frontend communicates with backend microservices via RESTful APIs (located in the `services/` directory).
+* **📦 Modular Backend:** Independent services for `Produits` (Products), `Commandes` (Orders), and `Paiement` (Payments).
+* **📱 Fully Responsive:** Optimized for mobile and desktop using Tailwind's utility classes.
+* **⚡ Performance:** Optimized build size and component rendering.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠 Technology Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend (`client-ui-react`)
+* **Framework:** React.js
+* **Styling:** Tailwind CSS & PostCSS
+* **HTTP Client:** Axios / Fetch API
+* **Testing:** React Testing Library
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend (Microservices)
+* **Framework:** Spring Boot (Java)
+* **Build Tool:** Maven/Gradle
+* **Database:** H2 / MySQL / PostgreSQL (Configurable per service)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📂 Project Structure
 
-## Learn More
+The repository is organized into a frontend client and distinct backend microservices:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```text
+MCOMMERCE/
+├── client-ui-react/           # Frontend Application
+│   ├── public/
+│   ├── src/
+│   │   ├── components/        # Reusable UI (Navbar, Cards)
+│   │   ├── services/          # API Service calls to Microservices
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── tailwind.config.js     # Tailwind CSS Configuration
+│   └── package.json
+│
+├── microservice-commandes/    # Backend: Orders Management
+├── microservice-paiement/     # Backend: Payment Processing
+└── microservice-produits/     # Backend: Product Catalog
+🚀 Getting Started
+To run the full stack locally, you need to start the backend services first, then the frontend.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Start the Microservices
+Navigate to each microservice folder and run the application (assuming Spring Boot):
 
-### Code Splitting
+Bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Terminal 1 - Products
+cd microservice-produits
+./mvnw spring-boot:run
 
-### Analyzing the Bundle Size
+# Terminal 2 - Orders
+cd microservice-commandes
+./mvnw spring-boot:run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Terminal 3 - Payments
+cd microservice-paiement
+./mvnw spring-boot:run
+2. Start the Frontend
+Bash
 
-### Making a Progressive Web App
+# Terminal 4 - React Client
+cd client-ui-react
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Install dependencies (first time only)
+npm install
 
-### Advanced Configuration
+# Run the UI
+npm start
+The application will launch at http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Create your Feature Branch (git checkout -b feature/NewFeature).
 
-### `npm run build` fails to minify
+Commit your changes (git commit -m 'Add NewFeature').
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Push to the branch (git push origin feature/NewFeature).
+
+Open a Pull Request.
+
+📧 Contact
+[ADAM]
+
+GitHub: github.com/adamboudali1
+
+LinkedIn: linkedin.com/in/adam boudali
+
+Email: adamboudali1@gmail.com
+<p align="center">Made with ❤️ using React</p>
